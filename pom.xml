@@ -38,6 +38,12 @@
 	 		<classifier>tests</classifier>
 	 	</dependency>
   
+  		<dependency>
+			<groupId>org.restflow</groupId>
+			<artifactId>restflow-bash</artifactId>
+			<version>1.0b3</version>
+		</dependency>
+
   </dependencies>
 
 <build>
