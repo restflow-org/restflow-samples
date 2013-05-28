@@ -3,7 +3,8 @@ namespace:
 imports:
   - classpath:common/support.yaml
   - classpath:common/directors.yaml
-  - classpath:common/types.yaml
+  - classpath:/org/restflow/groovy/types.yaml
+
 
 beans:
 
@@ -19,7 +20,7 @@ beans:
 
 
   - id: ConvertAuthorToYaml
-    className: org.restflow.actors.GroovyActor
+    className: org.restflow.groovy.GroovyActor
     singleton: false
     properties:
       settings:

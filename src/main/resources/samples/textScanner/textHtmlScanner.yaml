@@ -1,9 +1,9 @@
 namespace:
 
 imports:
+  - classpath:/org/restflow/groovy/types.yaml
   - classpath:common/support.yaml
   - classpath:common/directors.yaml
-  - classpath:common/types.yaml
 
 beans:
 
@@ -26,7 +26,7 @@ beans:
       absorbWhiteSpaceSymbol: "."
 
   - id: ConvertAuthorToYaml
-    className: org.restflow.actors.GroovyActor
+    className: org.restflow.groovy.GroovyActor
     singleton: false
     properties:
       settings:

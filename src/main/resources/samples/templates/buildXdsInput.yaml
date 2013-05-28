@@ -3,7 +3,7 @@ namespace:
 imports:
   - classpath:common/support.yaml
   - classpath:common/directors.yaml
-  - classpath:common/types.yaml
+  - classpath:/org/restflow/groovy/types.yaml
   - classpath:ssrl/parsers/labelit.yaml
   - classpath:ssrl/templates/xdsInput.yaml  
 

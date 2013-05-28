@@ -1,6 +1,7 @@
 namespace:
 
 imports:
+  - classpath:/org/restflow/groovy/types.yaml
   - classpath:common/support.yaml
   - classpath:common/directors.yaml
 
@@ -41,7 +42,7 @@ beans:
 
 
   - id: ImageHeaderReader
-    className: org.restflow.actors.GroovyActor
+    className: org.restflow.groovy.GroovyActor
     singleton: false
     properties:
       private:

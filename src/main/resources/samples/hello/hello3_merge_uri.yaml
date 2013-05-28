@@ -1,6 +1,6 @@
 imports:
 
-- actors:actors.yaml
+- classpath:/org/restflow/groovy/actors.yaml
 - classpath:/common/directors.yaml
 
 components:
@@ -9,7 +9,7 @@ components:
   type: Workflow
   properties:
     director: !inline
-      className: org.restflow.directors.GroovyDirector
+      className: org.restflow.groovy.GroovyDirector
       properties:
         schedule: |
           CreateGreeting1.step();

@@ -1,15 +1,15 @@
 namespace:
 
 imports:
+  - classpath:/org/restflow/groovy/types.yaml
   - classpath:common/support.yaml
   - classpath:common/directors.yaml
-  - classpath:common/types.yaml
   - classpath:ssrl/parsers/labelit.yaml
 
 components:
 
   - id: FindBestIndexingResult
-    className: org.restflow.actors.GroovyActor
+    className: org.restflow.groovy.GroovyActor
     singleton: false
     properties:
       settings:
