@@ -9,29 +9,32 @@ public class TestSampleWorkflows extends WorkflowTestCase {
 		_resourceDirectory = "/src/main/resources/";
 	}
 	
+	public void setUp() throws Exception {
+		super.setUp();
+		org.restflow.RestFlow.enableLog4J();
+		_importSchemeToResourceMap.put("actors", "classpath:/org/restflow/groovy/");
+		_importSchemeToResourceMap.put("testActors", "classpath:/org/restflow/groovy/");
+	}
+	
 	public void test_Hello1() throws Exception {
-		configureForGroovyActor();
 		_loadAndRunWorkflow("hello", "hello1", _dataDrivenDirector(), "HelloWorld");
 		assertEquals(_getExpectedResultFile("hello1_trace.txt"), _runner.getTraceReport());
 		assertEquals(_getExpectedStdout("hello1_stdout.txt"), _runner.getStdoutRecording());
 	}
 
 	public void test_Hello2() throws Exception {
-		configureForGroovyActor();
 		_loadAndRunWorkflow("hello", "hello2", _dataDrivenDirector(), "HelloWorld");
 		assertEquals(_getExpectedResultFile("hello2_trace.txt"), _runner.getTraceReport());	
 		assertEquals(_getExpectedStdout("hello2_stdout.txt"), _runner.getStdoutRecording());		
 	}
 	
 	public void test_Hello3() throws Exception {
-		configureForGroovyActor();
 		_loadAndRunWorkflow("hello", "hello3", _dataDrivenDirector(), "HelloWorld");
 		assertEquals(_getExpectedResultFile("hello3_trace.txt"), _runner.getTraceReport());	
 		assertEquals(_getExpectedStdout("hello3_stdout.txt"), _runner.getStdoutRecording());		
 	}
 
 	public void test_Hello3_merge_uri() throws Exception {
-		configureForGroovyActor();
 		//PublishSubscribeDirector d = new PublishSubscribeDirector();
 		//d.setPublisher(new BufferedPublisher());
 		//DemandDrivenDirector d = new DemandDrivenDirector();
@@ -45,70 +48,60 @@ public class TestSampleWorkflows extends WorkflowTestCase {
 	}	
 	
 	public void test_Hello4() throws Exception {
-		configureForGroovyActor();
 		_loadAndRunWorkflow("hello", "hello4", _dataDrivenDirector(), "HelloWorld");
 		assertEquals(_getExpectedResultFile("hello4_trace.txt"), _runner.getTraceReport());	
 		assertEquals(_getExpectedStdout("hello4_stdout.txt"), _runner.getStdoutRecording());		
 	}
 
 	public void test_Hello5() throws Exception {
-		configureForGroovyActor();
 		_loadAndRunWorkflow("hello", "hello5", _dataDrivenDirector(), "HelloWorld");
 		assertEquals(_getExpectedResultFile("hello5_trace.txt"), _runner.getTraceReport());		
 		assertEquals(_getExpectedStdout("hello5_stdout.txt"), _runner.getStdoutRecording());		
 	}
 
 	public void test_Hello6() throws Exception {
-		configureForGroovyActor();
 		_loadAndRunWorkflow("hello", "hello6", _dataDrivenDirector(), "HelloWorld");
 		assertEquals(_getExpectedResultFile("hello6_trace.txt"),_runner.getTraceReport());
 		assertEquals(_getExpectedStdout("hello6_stdout.txt"), _runner.getStdoutRecording());		
 	}
 
 	public void test_Hello7() throws Exception {
-		configureForGroovyActor();
 		_loadAndRunWorkflow("hello", "hello7", _dataDrivenDirector(), "HelloWorld");
 		assertEquals(_getExpectedResultFile("hello7_trace.txt"), _runner.getTraceReport());		
 		assertEquals(_getExpectedStdout("hello7_stdout.txt"), _runner.getStdoutRecording());		
 	}
 	
 	public void test_Incrementer1() throws Exception {
-		configureForGroovyActor();
 		_loadAndRunWorkflow("nested", "incrementer1", _dataDrivenDirector(), "Incrementer");
 		assertEquals(_getExpectedResultFile("incrementer1_trace.txt"), _runner.getTraceReport());		
 		assertEquals(_getExpectedStdout("incrementer1_stdout.txt"), _runner.getStdoutRecording());		
 	}
 	
 	public void test_Incrementer2() throws Exception {
-		configureForGroovyActor();
 		_loadAndRunWorkflow("nested", "incrementer2", _dataDrivenDirector(), "ssrl.adders.Incrementer");
 		assertEquals(_getExpectedResultFile("incrementer2_trace.txt"), _runner.getTraceReport());		
 		assertEquals(_getExpectedStdout("incrementer2_stdout.txt"), _runner.getStdoutRecording());		
 	}
 
 	public void test_NestedWorkflow1_Incrementer() throws Exception {
-		configureForGroovyActor();
 		_loadAndRunWorkflow("nested", "nestedworkflow1", _dataDrivenDirector(), "Incrementer");
 		assertEquals(_getExpectedResultFile("nestedworkflow1_incrementer_trace.txt"),_runner.getTraceReport());;	
 		assertEquals(_getExpectedStdout("nestedworkflow1_incrementer_stdout.txt"), _runner.getStdoutRecording());		
 	}
 
 	public void test_NestedWorkflow1() throws Exception {
-		configureForGroovyActor();
 		_loadAndRunWorkflow("nested", "nestedworkflow1", _dataDrivenDirector(), "NestedWorkflow");
 		assertEquals(_getExpectedResultFile("nestedworkflow1_trace.txt"), _runner.getTraceReport());
 		assertEquals(_getExpectedStdout("nestedworkflow1_stdout.txt"), _runner.getStdoutRecording());		
 	}	
 	
 	public void test_NestedWorkflow2() throws Exception {
-		configureForGroovyActor();
 		_loadAndRunWorkflow("nested", "nestedworkflow2", _dataDrivenDirector(), "NestedWorkflow");
 		assertEquals(_getExpectedResultFile("nestedworkflow2_trace.txt"), _runner.getTraceReport());	
 		assertEquals(_getExpectedStdout("nestedworkflow2_stdout.txt"), _runner.getStdoutRecording());		
 	}	
 	
 	public void test_NestedWorkflow3() throws Exception {
-		configureForGroovyActor();
 		_loadAndRunWorkflow("nested", "nestedworkflow3", _dataDrivenDirector(), "NestedWorkflow");
 		assertEquals(_getExpectedResultFile("nestedworkflow3_trace.txt"), _runner.getTraceReport());	
 		assertEquals(_getExpectedStdout("nestedworkflow3_stdout.txt"), _runner.getStdoutRecording());		
@@ -193,7 +186,6 @@ public class TestSampleWorkflows extends WorkflowTestCase {
 //	}
 	
 	public void test_files() throws Exception {
-		configureForGroovyActor();
 		_useWorkingDirectory();
 		_loadAndRunWorkflow("files", "helloWorld", _dataDrivenDirector(), "HelloWorld");
 		assertEquals(_getExpectedResultFile("helloWorld_trace.txt"), _runner.getTraceReport());;		
@@ -201,14 +193,12 @@ public class TestSampleWorkflows extends WorkflowTestCase {
 	}	
 	
 	public void test_Hello8() throws Exception {
-		configureForGroovyActor();
 		_loadAndRunWorkflow("hello", "hello8", _dataDrivenDirector(), "HelloWorld");
 		assertEquals(_getExpectedResultFile("hello8_trace.txt"), _runner.getTraceReport());;		
 		assertEquals(_getExpectedStdout("hello8_stdout.txt"), _runner.getStdoutRecording());		
 	}
 
 	public void test_bash_program() throws Exception {
-		configureForGroovyActor();
 		_useWorkingDirectory();
 		_loadAndRunWorkflow("files", "bashProgram", _dataDrivenDirector(), "BashProgram");
 		assertStringsEqualWhenLineEndingsNormalized(_getExpectedStdout("bashProgram_stdout.txt"), _runner.getStdoutRecording());		
