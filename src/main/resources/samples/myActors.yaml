@@ -1,8 +1,8 @@
  
 imports:
  
- - classpath:/common/types.yaml
- - classpath:/common/scriptActors.yaml
+ - classpath:/org/restflow/types.yaml
+ - classpath:/org/restflow/scriptActors.yaml
 
 components:
 
