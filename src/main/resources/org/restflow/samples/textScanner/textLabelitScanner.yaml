@@ -4,7 +4,7 @@ imports:
   - classpath:/org/restflow/groovy/types.yaml
   - classpath:/org/restflow/support.yaml
   - classpath:/org/restflow/directors.yaml
-  - classpath:ssrl/parsers/labelit.yaml
+  - classpath:/org/restflow/samples/textScanner/labelit.yaml
 
 components:
 

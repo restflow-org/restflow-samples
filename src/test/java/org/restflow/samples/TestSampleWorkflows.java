@@ -5,7 +5,7 @@ import org.restflow.test.WorkflowTestCase;
 public class TestSampleWorkflows extends WorkflowTestCase {
 	
 	public TestSampleWorkflows() {
-		super("samples");
+		super("org/restflow/samples");
 		_resourceDirectory = "/src/main/resources/";
 	}
 	

@@ -2,7 +2,7 @@ imports:
 
 - classpath:/org/restflow/groovy/actors.yaml
 - classpath:/org/restflow/directors.yaml
-- classpath:/org/restflow/bash/bashActor.yaml
+- classpath:/org/restflow/bash/types.yaml
 
 components: 
 
