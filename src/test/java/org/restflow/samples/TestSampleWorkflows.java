@@ -1,6 +1,7 @@
 package org.restflow.samples;
 
 import org.restflow.test.WorkflowTestCase;
+import org.restflow.util.TestUtilities;
 
 public class TestSampleWorkflows extends WorkflowTestCase {
 	
@@ -201,7 +202,7 @@ public class TestSampleWorkflows extends WorkflowTestCase {
 	public void test_bash_program() throws Exception {
 		_useWorkingDirectory();
 		_loadAndRunWorkflow("files", "bashProgram", _dataDrivenDirector(), "BashProgram");
-		assertStringsEqualWhenLineEndingsNormalized(_getExpectedStdout("bashProgram_stdout.txt"), _runner.getStdoutRecording());		
+		TestUtilities.assertStringsEqualWhenLineEndingsNormalized(_getExpectedStdout("bashProgram_stdout.txt"), _runner.getStdoutRecording());		
 		assertEquals(_getExpectedResultFile("bashProgram_trace.txt"), _runner.getTraceReport());;		
 	}
 
